@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+* {
+    margin: 0;
+}
+a {
+    text-decoration: none;
+    outline: none;
+    color :inherit;
+  }
+  
+.header_section{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding: 20px;
+    position: sticky;
+    top:0;
+    z-index: 100;
+    background-color: white;
+}
+
+.logo-styles{
+    height: 50px;
+    object-fit: contain;
+    margin-left:20px;
+}
+
+.account_section{
+    display: flex;
+    align-items:center;
+}
+.search_section{
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    width:40%;
+    border: 1px solid black;
+    border-radius:1px;
+    padding: 0px;
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+}
+
+.search_section > input{
+    flex: 1;
+    border: none;
+    justify-content: center;
+}
+.search_section > input:focus{
+    outline: none;
+}
+
+.search_section > i{
+    width:50px;
+    background-color: rgb(3, 53, 110);
+    border-left: 1px solid rgb(3, 53, 110);
+    padding-bottom: 4.0px;
+}
+
+.fa-search {
+    padding-left: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.fa-search:before {
+    padding-left: 10%;
+    content: "\f002";
+    color :white;
+    margin-top: 10px;
+}
+
+.left_section{
+    display: flex;
+    justify-content:center;
+    position: sticky;
+    background-color: white;
+}
+
+.hamburger{
+    padding-top: 20px;
+}
+
+
+/* The sidebars */
+
+.main_code_body{
+    display: flex;
+}
+
+.SideBars {
+    flex:0.17;
+    background-color:white;
+
+}
+
+.TheVideoSection{
+    flex:0.83;
+    background-color: #f9f9f9;
+    padding: 20px 20px;
+    padding-bottom: 0;
+}
+.TheVideoSection > h2{
+    margin-left: 5px;
+    margin-bottom: 20px;
+}
+
+.VideoCard{
+    width :270px;
+    margin-bottom: 30px;
+}
+.AllVideos{
+    display:flex;
+    flex-wrap: wrap;
+}
+.video_thumbnail{
+    height:140px;
+    width :250px;
+}
+.videoCard_info{
+    display:flex;
+    margin-top:10px;
+    padding-right: 30px;
+}
+.video_text{
+    margin-left: 10px;
+}
+
+.video_text > h4{
+    font-size: 14px;
+    margin-bottom:5px;
+}
+.video_text >p{
+    font-size:14px;
+    color:gray;
+
+}
+.VideoAvatar{
+    height: 50px !important;
+    color :rgb(80, 74, 74);
+}
+.sidebars_field{
+    display: flex;
+    align-items: center;
+    margin-top:4px;
+    padding:10px 20px;
+}
+.sidebars_field:hover{
+    background-color:lightgray;
+    cursor: pointer;
+}
+
+.sidebars_field:hover >.icon_sidebar{
+    color:rgb(4, 46, 94);
+}
+.sidebars_field:hover >.sidebar_text{
+    font-weight: bolder;
+}
+.sidebars_field.selected{
+    background-color:lightgray;
+}
+.icon_sidebar{
+    margin-left: 15px;
+    margin-right: 20px;
+    color: #606060;
+    font-size: large !important;
+}
+
+.sidebar_text{
+    color:#606060;
+    font-size: 0.8rem;
+    flex: 1;
+    font-weight: 700;
+    letter-spacing:0.5px;
+    font-family: 'Rubik', sans-serif,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.Next_ROW {
+    height:1px;
+    border:0;
+    background-color:lightgray;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.AuthButton{
+    padding: 8px 15px;
+    border: none;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    background: #285fd4;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    transition: 0.5s all;
+    margin-right: 1.5em;
+    font-weight:400;
+}
+
+.AuthButton:hover{
+    font-weight: 500;
+    font-size: 13.5px;
+    box-shadow: 0 20px 50px rgba(232, 235, 236, 0.7);
+    background: #285fd4;
+    border: 2px solid #fff;
+}
+.LogoutButton{
+    display: flex;
+    width : auto;
+    padding-right: 10px;
+    padding-left: 0;
+    background-color:inherit;
+    border:none;
+}
+.LogoutButton:hover{
+    background-color:lightgray;
+}
