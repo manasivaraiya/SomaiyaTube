@@ -1,0 +1,28 @@
+{% load static %} {% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src="https://use.fontawesome.com/0efb5bc93c.js"></script>
+</head>
+<body>
+<div class="logo-styles">
+  <a href="{% url 'homepage' %}"><img src="{% static 'images/logo.png' %}" style="width:230px;height: 80px;" alt="VideoBox"></a>
+</div>
+
+<div class="container">
+  <h2>Login </h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button class="btn btn-success" type="submit" id="submit-button">Log In</button>
+  </form>
+  <div class="noacc">New to Videobox? <a href="{% url 'account_signup' %}">Sign up</a></div>
+</div>
+</body>
+</html>

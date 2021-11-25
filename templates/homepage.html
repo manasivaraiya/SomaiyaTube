@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+    <script src="{% static 'js/homepage.js' %}"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src="https://use.fontawesome.com/0efb5bc93c.js"></script>
+    <title>Homepage</title>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header_section">
+        <div class="left_section">
+            <i class="fa fa-bars hamburger fa-6x" style="transform: scale(1.5,1);" aria-hidden="true"></i>
+            <a href="{% url 'homepage' %}"><img class="logo-styles" src="{% static 'images/logo.png' %}" alt="VideoBox"></a>
+        </div>
+
+        <form action="{% url 'homepage' %}" method="get" class="search_section">
+            <input name="q" type="text" placeholder="Search...">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </form>
+        {% if user.is_authenticated %}
+        <div class="account_section">
+            <a href = '/upload'><i class="fa fa-video-camera" aria-hidden="true" style="margin: 10px;"></i></a>
+            <h4 style="margin: 6px;font-size: 18px;font-family: sans-serif;letter-spacing: 0.5px;">{{user.username}}</h4>
+            <i class="fa fa-caret-down" aria-hidden="true"></i>
+        </div>
+        {% else %}
+        <div class="account_section">
+            <a href="{% url 'account_login' %}"><button class="AuthButton" >
+               Login
+           </button> </a>
+           <a href="{% url 'account_signup' %}"><button class="AuthButton">
+               SignUp
+           </button></a>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Main application -->
+
+    <div class="main_code_body">
+        <div class="SideBars">
+            <a href="{% url 'homepage' %}">
+            <div class="sidebars_field" id="sidebar-row">
+                <i class="fa fa-home icon_sidebar" aria-hidden="true" ></i>
+                <h2 class="sidebar_text"> Home </h2>
+            </div>
+            </a>
+            <div class="sidebars_field" id="sidebar-row">
+                <i class="fa fa-heart icon_sidebar" aria-hidden="true" ></i>
+                <h2  class="sidebar_text" >Trending</h2>
+            </div>
+            <div class="sidebars_field" id="sidebar-row">
+                <i class="fa fa-cog icon_sidebar" aria-hidden="true" ></i>
+                <h2  class="sidebar_text" >Settings</h2>
+            </div>
+            <div class="Next_ROW" ></div>
+            {% if user.is_authenticated %}
+            <div class="sidebars_field" id="sidebar-row">
+                <i class="fa fa-upload icon_sidebar" aria-hidden="true"></i>
+                <a href = '/upload'><h2  class="sidebar_text" >Upload video</h2></a>
+            </div>
+            <div class="sidebars_field" id="sidebar-row">
+                <i class="fa fa-history icon_sidebar" aria-hidden="true"></i>
+                <h2 class="sidebar_text"> History </h2>
+            </div>
+            <div class="sidebars_field" id="sidebar-row">
+                <i class="fa fa-youtube-play icon_sidebar" aria-hidden="true"></i>
+                <h2  class="sidebar_text" >Your Videos</h2>
+            </div>
+            <div class="sidebars_field" id="sidebar-row">
+                <i class="fa fa-bookmark icon_sidebar" aria-hidden="true"></i>
+                <h2  class="sidebar_text" >Saved videos</h2>
+            </div>
+            <div class="sidebars_field" id="sidebar-row">
+                <i class="fa fa-thumbs-up icon_sidebar" aria-hidden="true"></i>
+                <h2  class="sidebar_text" >Liked videos</h2>
+            </div>
+            <div class="sidebars_field" id="sidebar-row">
+                <form method="post" action="{% url 'account_logout' %}">
+                    {% csrf_token %}
+                    {% if redirect_field_value %}
+
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                    {% endif %}
+                    <button class="LogoutButton">
+                    <i class="fa fa-sign-out icon_sidebar" type="submit" aria-hidden="true"></i>
+                    <h2  class="sidebar_text">Log Out</h2>
+                    </button>
+                </form>
+            </div>
+            {% else %}
+            <div class="sidebars_field" id="sidebar-row">
+                <i class="fa fa-compass icon_sidebar" aria-hidden="true"></i>
+                <h2  class="sidebar_text" >Explore More</h2>
+            </div>
+            <div class="sidebars_field" id="sidebar-row">
+                <i class="fa fa-upload icon_sidebar" aria-hidden="true"></i>
+                <a href = '/upload'><h2  class="sidebar_text" >Upload video</h2></a>
+            </div>
+            <div class="sidebars_field" id="sidebar-row">
+                <i class="fa fa-user icon_sidebar" aria-hidden="true"></i>
+                <h2  class="sidebar_text" >Create Account</h2>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="TheVideoSection">
+            <h2>All Videos</h2>
+            <div class="AllVideos">
+                {% for video in videos  %}
+                <a href="{% url 'ViewVideo' video.pk %}">
+                <div class="VideoCard">
+                    <img class="video_thumbnail" src={{video.thumbnail.url}} alt ={{video.title}}>
+                    <div class="videoCard_info">
+                        <i class="fa fa-user-circle VideoAvatar" aria-hidden="true"></i>
+                        <div class="video_text">
+                            <h4>{{video.title}}</h4>
+                            <p>{{video.user}}</p>
+                            <p>{{video.likes}} Likes &nbsp; &#9679; Streamed on {{video.date}}</p>
+                        </div>
+                    </div>
+                </div>
+                </a>
+
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
