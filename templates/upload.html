@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Feedback Page</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock title %}
+
+{% block content %}
+<div class="logo-styles">
+    <a href="{% url 'homepage' %}"><img src="{% static 'images/logo.png' %}" style="width:230px;height: 80px;" alt="VideoBox"></a>
+</div>
+<h4 class="modal-title" style="color: rgb(90, 90, 221);letter-spacing:2px;margin-top: 30px;text-align: center; " id="exampleModalLabel">UPLOAD YOUR VIDEO</h5>
+<div class="query-form" style="width: 40rem;margin-top: 20px">
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="title" style="color: black;">Title: </label>
+            <input type="text" class="form-control" value="" name="title" id="title" placeholder="Title goes here" required><br>
+        </div>
+
+        <div class="form-group">
+            <label for="desc" style="color: black;">Description: </label>
+            <textarea type="text" value="" class="form-control" name="desc" placeholder="Description..." name="message" id="msg" rows="6" cols="6"></textarea>
+        </div>
+
+
+        <div class="form-group">
+            <label for="thumbnail" style="color: black;">Upload Thumbnail: </label>
+            <input type="file" class="form-control" value="" name="thumbnail" id="link" placeholder="Copy paste youtube video link" ><br>
+        </div>
+
+        <div class="form-group">
+            <label for="video" style="color: black;">Upload Video: </label>
+            <input type="file" class="form-control" value="" name="video" id="link" placeholder="Copy paste youtube video link" ><br>
+        </div>
+
+
+        <div class="form-group text-center">
+            <button type="submit" class="btn btn-lg btn-primary">SUBMIT</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}
+
+{% block css %}
+    <style>
+        .query-form form {
+	color: white;
+	border-radius: 3px;
+	margin-top: 5px;
+	background: rgb(147, 212, 221);
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	padding: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+        .query-form{
+            width: 40rem;
+	margin: 0 auto;
+	padding: 30px 0;
+        }
+
+.form-group{
+    margin-bottom: 1rem;
+}
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+    </style>
+{% endblock css %}

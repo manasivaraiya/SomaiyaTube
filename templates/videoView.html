@@ -1,0 +1,120 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/video.css' %}">
+    <script src="{% static 'js/homepage.js' %}"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src="https://use.fontawesome.com/0efb5bc93c.js"></script>
+    <title>Homepage</title>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header_section">
+        <div class="left_section">
+            <i class="fa fa-bars hamburger fa-6x" style="transform: scale(1.5,1);" aria-hidden="true"></i>
+            <a href="{% url 'homepage' %}"><img class="logo-styles" src="{% static 'images/logo.png' %}" alt="VideoBox"></a>
+        </div>
+
+        <form action="{% url 'Search' %}" method="get" class="search_section">
+            <input name="q" type="text" placeholder="Search...">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </form>
+        {% if user.is_authenticated %}
+        <div class="account_section">
+            <a href = '/upload'><i class="fa fa-video-camera" aria-hidden="true" style="margin: 10px;"></i></a>
+            <h4 style="margin: 6px;font-size: 18px;font-family: sans-serif;letter-spacing: 0.5px;">{{user.username}}</h4>
+            <i class="fa fa-caret-down" aria-hidden="true"></i>
+        </div>
+        {% else %}
+        <div class="account_section">
+            <a href="{% url 'account_login' %}"><button class="AuthButton" >
+               Login
+           </button> </a>
+           <a href="{% url 'account_signup' %}"><button class="AuthButton">
+               SignUp
+           </button></a>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Main Video Section -->
+    <div class="TheMainVideoSection">
+        <div class="videos">
+            <video  width="1000" height="500" controls>
+                <source src={{video.video.url}} type="video/mp4">
+            </video>
+
+            <div class="Video_section">
+                <div class="First_line">
+                    <h4>{{ video.title }}</h4>
+                    <div class="LikeUnlike">
+                        <form method="POST">
+                          {% csrf_token %}
+                        <button class="ldbutton" name="Like">
+                        <i class="fa fa-thumbs-up" aria-hidden="true" id="IconResize"></i>
+                      </button>
+                    </form>
+                    <h4 class="LikeCount"> {{ video.likes }} </h4>
+                    
+                    <form method="POST">
+                      {% csrf_token %}
+                    <button class="ldbutton" name="Dislike">
+                        <i class="fa fa-thumbs-down" aria-hidden="true" id="IconResize"></i>
+                    </button>
+                    </form>
+                    <h4 class="LikeCount">{{ video.dislikes }}</h4>
+                    </div>
+                
+                    <div class="Share_feature">
+                        <h4>Share</h4>
+                        <i class="fa fa-share-alt" aria-hidden="true" id="IconResize"></i>
+                    </div>
+                </div>
+
+                <p>{{ video.likes }} likes  &nbsp; ● Streamed live on {{ video.date }}</p>
+                <div class="Next_ROW" style="height: 1.5px;width:1070px;"></div>
+
+                <div class="ProfileSection">
+                    <div class="ProfileAccount">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                        <h4>{{video.user}}</h4>
+                    </div>
+                    <p>{{ video.description }}</p>
+                </div>
+                <div class="Next_ROW" style="height: 1.5px;width:1070px;"></div>
+
+                <h3> {{count}} Comments</h3>
+                <div class="MyComment">
+                <form method="POST">
+                    {% csrf_token %}
+                    <textarea rows="4" cols="110" placeholder="Enter a comment" name="Addcomment"></textarea>
+                    <button class="Comment_button" type="submit">Save</button>
+                </form>
+                <div class="Comments">
+
+                </div>
+                    <div class="OthersComment">
+                        {% for comment in comments %}
+                        <div class="SingleComment">
+                            <div class="AlignCommentItem" style="display: flex;">
+                                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                <div class="NameText">
+                                    <h4>{{comment.user}}</h4>
+                                    <p>{{comment.text}}</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endfor %}
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</body>
+</html>

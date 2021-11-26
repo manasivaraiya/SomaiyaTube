@@ -1,0 +1,154 @@
+.TheMainVideoSection{
+    background-color : #f9f9f9;
+    display:block;
+}
+.videos >video{
+    margin-left: 8%;
+    margin-top: 30px;
+    border: 1px solid rgb(82, 80, 80);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
+}
+
+.Video_section{
+    margin-top :20px;
+    font-size :18px;
+    margin-left: 8%;
+
+}
+
+.Video_section > p{
+    font-family: Roboto,Arial,sans-serif;
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight:400  !important;
+    color :#606060;
+    letter-spacing:1px;
+
+}
+
+.First_line >h4 {
+    font-weight: 500 !important;
+    letter-spacing: 1px;
+    font-family: Roboto,Arial,sans-serif;
+
+}
+.First_line{
+    display : flex;
+
+}
+
+.LikeUnlike{
+    display : flex;
+    margin-left:53%;
+    margin-right:2%;
+    color :#606060;
+
+
+}
+
+.Share_feature{
+    display:flex;
+    color :#606060;
+}
+.Share_feature h4{
+    margin-right: 8px;
+    font-size: 1em;
+}
+#IconResize{
+    font-size: 1.3em;
+}
+
+.LikeCount{
+    margin-left: 2px;
+    margin-right:15px
+}
+.ProfileSection{
+    margin-top:30px;
+}
+.ProfileAccount{
+    display : flex;
+}
+
+.ProfileAccount >i{
+    font-size:2em;
+    color :rgb(90, 3, 32);
+    margin-right: 8px;
+}
+
+.ProfileAccount >h4{
+    margin-top: 10px;
+    font-weight:bolder;
+    font-size:16px;
+    letter-spacing: 1px;
+    font-family: Roboto,Arial,sans-serif;
+}
+
+.ProfileSection p{
+    margin-top:10px;
+    margin-bottom: 35px;
+    letter-spacing: 1px;
+    font-size: 16px;
+    font-family: Roboto,Arial,sans-serif;
+    width :800px;
+    margin-left: 3.5%;
+    align-items: center;
+    text-align:left;
+}
+
+.MyComment{
+    display:table-caption;
+    font-family: sans-serif;
+    margin-left: 3.5%;
+    margin-top: 30px;
+}
+
+.Comment_button{
+    height:30px;
+    margin-top:13px;
+    justify-self: end;
+    width:60px;
+    font-size: 15px;
+    color :#f9f9f9;
+    background-color:rgb(73, 73, 255);
+    cursor : pointer;
+
+}
+
+.OthersComment {
+    display: block;
+    margin-top:15px;
+    padding-top: 10px;
+    padding-bottom: 8px;
+    margin-left: 2.5%;
+}
+
+.SingleComment {
+    margin-bottom: 25px;
+}
+.NameText {
+    width : 800px;
+}
+.NameText >h4{
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom: 5px;
+    margin-top: 7px;
+}
+.NameText >p{
+    font-size:15px;
+    margin-top: 10px;
+}
+
+.AlignCommentItem >i{
+    font-size:2em;
+    color :rgb(49, 48, 49);
+    margin-right: 8px;
+}
+
+.ldbutton {
+    color :inherit;
+    background-color:inherit;
+    border: none;
+    cursor: pointer;
+}
