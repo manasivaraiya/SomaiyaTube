@@ -57,7 +57,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'VideoSharing.urls'
+ROOT_URLCONF = 'SomaiyaTube.urls'
 
 TEMPLATES = [
     {
@@ -75,7 +75,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'VideoSharing.wsgi.application'
+WSGI_APPLICATION = 'SomaiyaTube.wsgi.application'
 
 
 # Database
