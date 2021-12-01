@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login_signup.css' %}">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
     <script src="https://use.fontawesome.com/0efb5bc93c.js"></script>
 </head>
 <body>
 <div class="logo-styles">
-  <a href="{% url 'homepage' %}"><img src="{% static 'images/logo.png' %}" style="width:230px;height: 80px;" alt="VideoBox"></a>
+  <a href="{% url 'homepage' %}"><img src="{% static 'images/logo.png' %}" style="width:230px;height: 80px;" alt="SomaiyaTube"></a>
 </div>
 
 <div class="container">
@@ -22,7 +22,7 @@
     {{ form|crispy }}
     <button class="btn btn-success" type="submit" id="submit-button">Log In</button>
   </form>
-  <div class="noacc">New to Videobox? <a href="{% url 'account_signup' %}">Sign up</a></div>
+  <div class="noacc">New to SomaiyaTube? <a href="{% url 'account_signup' %}">Sign up</a></div>
 </div>
 </body>
 </html>
