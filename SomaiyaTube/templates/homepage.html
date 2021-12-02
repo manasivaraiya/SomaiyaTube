@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <script src="{% static 'js/homepage.js' %}"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
     <script src="https://use.fontawesome.com/0efb5bc93c.js"></script>
@@ -16,7 +16,7 @@
     <div class="header_section">
         <div class="left_section">
             <i class="fa fa-bars hamburger fa-6x" style="transform: scale(1.5,1);" aria-hidden="true"></i>
-            <a href="{% url 'homepage' %}"><img class="logo-styles" src="{% static 'images/logo.png' %}" alt="VideoBox"></a>
+            <a href="{% url 'homepage' %}"><img class="logo-styles" src="{% static 'images/logo.png' %}" alt="SomaiyaTube"></a>
         </div>
 
         <form action="{% url 'homepage' %}" method="get" class="search_section">

@@ -16,7 +16,7 @@ a {
     position: sticky;
     top:0;
     z-index: 100;
-    background-color: white;
+    background-color: rgb(172, 33, 33);
 }
 
 .logo-styles{
@@ -34,12 +34,9 @@ a {
     align-items:center;
     justify-content:center;
     width:40%;
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius:1px;
     padding: 0px;
-    padding-top: 0px;
-    padding-left: 0px;
-    padding-bottom: 0px;
 }
 
 .search_section > input{
@@ -53,8 +50,8 @@ a {
 
 .search_section > i{
     width:50px;
-    background-color: rgb(3, 53, 110);
-    border-left: 1px solid rgb(3, 53, 110);
+    background-color: black;
+    border-left: 1px solid black;
     padding-bottom: 4.0px;
 }
 
@@ -74,7 +71,7 @@ a {
     display: flex;
     justify-content:center;
     position: sticky;
-    background-color: white;
+    background-color: transparent;
 }
 
 .hamburger{
@@ -103,11 +100,14 @@ a {
 .TheVideoSection > h2{
     margin-left: 5px;
     margin-bottom: 20px;
+    color: rgb(172, 33, 33);
 }
 
 .VideoCard{
     width :270px;
+    height:250px;
     margin-bottom: 30px;
+    /* border: 2px solid black; */
 }
 .AllVideos{
     display:flex;
@@ -116,6 +116,7 @@ a {
 .video_thumbnail{
     height:140px;
     width :250px;
+    border: 2px solid black;
 }
 .videoCard_info{
     display:flex;
@@ -192,7 +193,7 @@ a {
     letter-spacing: 1px;
     border: 2px solid #fff;
     border-radius: 5px;
-    background: #285fd4;
+    background: black;
     -webkit-transition: 0.5s all;
     -moz-transition: 0.5s all;
     -o-transition: 0.5s all;
@@ -206,7 +207,7 @@ a {
     font-weight: 500;
     font-size: 13.5px;
     box-shadow: 0 20px 50px rgba(232, 235, 236, 0.7);
-    background: #285fd4;
+    background: #a8a8a8;
     border: 2px solid #fff;
 }
 .LogoutButton{
